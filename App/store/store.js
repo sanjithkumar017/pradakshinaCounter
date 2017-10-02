@@ -13,8 +13,7 @@ const initState = {
 export const counter = (state = initState, action) => {
     switch (action.type) {
         case 'INCREMENT':
-            console.log("And i am state ", state);
-            console.log("And i am incrementing ", state.count + 1);
+
             return Object.assign({}, state, {
                 count: state.count + 1,
                 countleft: state.countleft - 1,
@@ -26,7 +25,7 @@ export const counter = (state = initState, action) => {
                 countleft: 41,
             })
         case 'NEXTLANG':
-            console.log("Here in NEXTLANG",state);
+            
             return Object.assign({}, state, {
                 lang: (state.lang + 1) % 1
             })

@@ -14,14 +14,14 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = (dispatch) => ({
     increment: () => {
-        console.log("increment is called ");
+
         dispatch({type: 'INCREMENT'})
     },
     reset: () => {
         dispatch({type: 'RESET'})
     },
     nextlang: () => {
-        console.log("Here in nextlang");
+
         dispatch({type: 'NEXTLANG'})
     },
 })
