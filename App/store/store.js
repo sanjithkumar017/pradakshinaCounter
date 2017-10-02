@@ -25,7 +25,7 @@ export const counter = (state = initState, action) => {
                 countleft: 41,
             })
         case 'NEXTLANG':
-            
+
             return Object.assign({}, state, {
                 lang: (state.lang + 1) % 1
             })
