@@ -13,11 +13,8 @@ import {
 } from 'react-native';
 
 
-/*TVAMASMIN KAARYA NIRYOGE
- PRAMAANAM HARI SATTAMA |
- HANUMAN YATNA MAASTHAAYA
- DUKHA KSHAYA KARO BHAVA ||*/
-const mantraLanguages = ["TVAMASMIN KAARYA NIRYOGE PRAMAANAM HARI SATTAMA | HANUMAN YATNA MAASTHAAYA DUKHA KSHAYA KARO BHAVA ||", "Annar"]
+
+const mantraLanguages = ["Tvamasmin kārya niryōgē pramāṇaṁ harisattama hanumān yatnamāstāya dhuḥkha kṣaya karōbhava" ,]
 export default class Counter extends Component {
 
     render() {
