@@ -8,7 +8,8 @@ import Counter from '../components/Counter.js';
 
 const mapStateToProps = state => ({
     count: state.count,
-    countleft: state.countleft
+    countleft: state.countleft,
+    lang: state.lang
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -18,6 +19,10 @@ const mapDispatchToProps = (dispatch) => ({
     },
     reset: () => {
         dispatch({type: 'RESET'})
+    },
+    nextlang: () => {
+        console.log("Here in nextlang");
+        dispatch({type: 'NEXTLANG'})
     },
 })
 

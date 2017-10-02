@@ -5,7 +5,8 @@ import {createStore} from 'redux';
 
 const initState = {
     count: 0,
-    countleft: 41
+    countleft: 41,
+    lang: 1
 
 }
 
@@ -23,6 +24,11 @@ export const counter = (state = initState, action) => {
             return Object.assign({}, state, {
                 count: 0,
                 countleft: 41,
+            })
+        case 'NEXTLANG':
+            console.log("Here in NEXTLANG",state);
+            return Object.assign({}, state, {
+                lang: (state.lang + 1) % 2
             })
         default:
             return state;

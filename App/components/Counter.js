@@ -13,6 +13,11 @@ import {
 } from 'react-native';
 
 
+/*TVAMASMIN KAARYA NIRYOGE
+ PRAMAANAM HARI SATTAMA |
+ HANUMAN YATNA MAASTHAAYA
+ DUKHA KSHAYA KARO BHAVA ||*/
+const mantraLanguages = ["TVAMASMIN KAARYA NIRYOGE PRAMAANAM HARI SATTAMA | HANUMAN YATNA MAASTHAAYA DUKHA KSHAYA KARO BHAVA ||", "Annar"]
 export default class Counter extends Component {
 
     render() {
@@ -22,11 +27,9 @@ export default class Counter extends Component {
                 <View style={styles.parent}>
 
                     <View style={styles.mantra}>
-
-                        <Text style={styles.mantram}>TVAMASMIN KAARYA NIRYOGE
-                            PRAMAANAM HARI SATTAMA |
-                            HANUMAN YATNA MAASTHAAYA
-                            DUKHA KSHAYA KARO BHAVA ||</Text>
+                        <TouchableOpacity onPress={this.props.nextlang}>
+                            <Text style={styles.mantram}>{mantraLanguages[this.props.lang]}</Text>
+                        </TouchableOpacity>
 
                     </View>
 
