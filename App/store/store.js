@@ -6,7 +6,8 @@ import {createStore} from 'redux';
 const initState = {
     count: 0,
     countleft: 41,
-    lang: 0
+    lang: 0,
+    count1: 0, count2: 0, count3: 0, count4: 0,
 
 }
 
