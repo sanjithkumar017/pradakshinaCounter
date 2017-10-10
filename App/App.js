@@ -11,14 +11,14 @@ import {
 import { Provider } from 'react-redux';
 import { connect } from 'react-redux';
 import store from './store/store.js';
-import CounterContainer from './containers/CounterContainer.js';
+import CounterComponent from './components/Counter';
 
 export default class App extends Component {
     render() {
         return (
             <Provider store={store}>
                 <View style={styles.container}>
-                    <CounterContainer/>
+                    <CounterComponent/>
                 </View>
             </Provider>
         );

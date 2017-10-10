@@ -9,10 +9,11 @@ import {
 } from 'react-native';
 
 import styles from '../styles/styles.js';
+import CounterContainer from '../containers/Container.js';
 
 const mantraLanguages = ["Tvamasmin kārya niryōgē pramāṇaṁ harisattama hanumān yatnamāstāya dhuḥkha kṣaya karōbhava",];
 
-export default class MantraText extends Component {
+class MantraText extends Component {
     render() {
         return (
             <TouchableOpacity onPress={this.props.nextlang}>
@@ -22,3 +23,4 @@ export default class MantraText extends Component {
     }
 }
 
+export default CounterContainer(MantraText);

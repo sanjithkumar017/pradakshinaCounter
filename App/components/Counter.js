@@ -18,6 +18,7 @@ import DateCircle from './dateCircles';
 import MantraText from './mantraText';
 import SingleCounter from './singleCounter';
 
+import CounterContainer from "../containers/Container.js";
 
 //todo
 //We need to create seperate components
@@ -36,7 +37,7 @@ import SingleCounter from './singleCounter';
 //Save it as 4 objects with date as current day number, like 2nd, 17th and so on.
 
 
-export default class Counter extends Component {
+class Counter extends Component {
 
     componentDidMount() {
         console.log("This is componentDidMount");
@@ -54,7 +55,7 @@ export default class Counter extends Component {
                 <View style={styles.parent}>
 
                     <View style={styles.mantra}>
-                        <MantraText lang={this.props.lang}/>
+                        <MantraText/>
                     </View>
 
                     <View style={styles.deekshaCounter}>
@@ -65,7 +66,7 @@ export default class Counter extends Component {
                     </View>
 
                     <View style={styles.counterFactory}>
-                        <SingleCounter count={this.props.count} countleft={this.props.countleft}/>
+                        <SingleCounter/>
 
                     </View>
 
@@ -77,6 +78,8 @@ export default class Counter extends Component {
 
 }
 
+
+export default CounterContainer(Counter);
 
 
 

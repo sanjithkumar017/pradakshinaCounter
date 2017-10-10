@@ -4,8 +4,6 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux';
-import Counter from '../components/Counter.js';
-import MantraText from '../components/mantraText';
 
 const mapStateToProps = state => ({
     count: state.count,
@@ -29,4 +27,4 @@ const mapDispatchToProps = (dispatch) => ({
     },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)
