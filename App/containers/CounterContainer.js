@@ -5,12 +5,15 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux';
 import Counter from '../components/Counter.js';
+import MantraText from '../components/mantraText';
 
 const mapStateToProps = state => ({
     count: state.count,
     countleft: state.countleft,
     lang: state.lang
 })
+
+
 
 const mapDispatchToProps = (dispatch) => ({
     increment: () => {

@@ -12,11 +12,12 @@ import {
     Alert,
     AsyncStorage
 } from 'react-native';
-import {Provider} from 'react-redux';
+
 import styles from '../styles/styles';
 import DateCircle from './dateCircles';
 import MantraText from './mantraText';
-import store from '../store/store.js';
+import SingleCounter from './singleCounter';
+
 
 //todo
 //We need to create seperate components
@@ -48,96 +49,34 @@ export default class Counter extends Component {
 
     render() {
         return (
-            <Provider store={store}>
-                <View style={styles.container}>
-                    <View style={styles.parent}>
 
-                        <View style={styles.mantra}>
-                            <MantraText/>
-                        </View>
+            <View style={styles.container}>
+                <View style={styles.parent}>
 
-                        <View style={styles.deekshaCounter}>
-                            <DateCircle/>
-                            <DateCircle/>
-                            <DateCircle/>
-                            <DateCircle/>
-                        </View>
+                    <View style={styles.mantra}>
+                        <MantraText lang={this.props.lang}/>
+                    </View>
 
-                        <View style={styles.counterFactory}>
+                    <View style={styles.deekshaCounter}>
+                        <DateCircle/>
+                        <DateCircle/>
+                        <DateCircle/>
+                        <DateCircle/>
+                    </View>
 
-                            <TouchableHighlight underlayColor={'#D62828'} style={styles.buttonWrapperCounter}
-                                                onPress={()=> {
-                                                    this.props.increment();
-                                                    if (this.props.count == 40) {
-
-                                                        Alert.alert(
-                                                            'You have successfully finished 41 rounds',
-                                                            'Please rate us on Google Play',
-                                                            [
-                                                                {
-                                                                    text: 'Ok', onPress: () => {
-                                                                    this.props.reset()
-
-                                                                }
-                                                                },
-                                                                {
-                                                                    text: 'Cancel',
-                                                                    onPress: () => console.log('Cancel Pressed')
-                                                                },
-                                                            ],
-                                                            {cancelable: false}
-                                                        )
-
-                                                    }
-                                                }}>
-                                <Text
-                                    style={styles.buttonCounter}>
-                                    {this.props.count}
-                                </Text>
-
-                            </TouchableHighlight>
-
-
-                            <TouchableOpacity style={styles.buttonWrapperReset} onPress={()=> {
-                                if (this.props.count == 0) {
-
-                                } else {
-                                    Alert.alert(
-                                        'Are you sure?',
-                                        'You will lose the count',
-                                        [
-                                            {
-                                                text: 'Ok', onPress: () => {
-                                                this.props.reset()
-
-                                            }
-                                            },
-                                            {text: 'Cancel', onPress: () => console.log('Cancel Pressed')},
-                                        ],
-                                        {cancelable: false}
-                                    )
-                                }
-                            }}>
-                                <Text
-                                    style={styles.buttonReset}>
-                                    RESET
-                                </Text>
-                            </TouchableOpacity>
-
-
-                            <Text>
-                                You have {this.props.countleft} rounds left
-                            </Text>
-
-
-                        </View>
+                    <View style={styles.counterFactory}>
+                        <SingleCounter count={this.props.count} countleft={this.props.countleft}/>
 
                     </View>
+
                 </View>
-            </Provider>
+            </View>
+
         );
     }
 
 }
+
+
 
 
