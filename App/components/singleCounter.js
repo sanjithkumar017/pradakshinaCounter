@@ -15,8 +15,9 @@ import {
 } from 'react-native';
 
 import styles from '../styles/styles';
+import CounterContainer from "../containers/Container.js";
 
-export default class SingleCounter extends Component {
+class SingleCounter extends Component {
     render() {
         return (
             <View>
@@ -89,3 +90,4 @@ export default class SingleCounter extends Component {
 
 
 }
+export default CounterContainer(SingleCounter);
