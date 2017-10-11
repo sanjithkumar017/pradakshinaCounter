@@ -21,8 +21,6 @@ import SingleCounter from './singleCounter';
 import CounterContainer from "../containers/Container.js";
 
 //todo
-//We need to create seperate components
-//We need to reuse the components
 
 //Spend 5 days on testing
 //Unit testing

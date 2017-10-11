@@ -7,20 +7,53 @@ describe('reducers', ()=> {
     describe('counter', ()=> {
 
         it('should provide the initial state', ()=> {
-            expect(counter(undefined, {})).toBe(0)
+            expect(counter(undefined, {})).toEqual({
+                count: 0,
+                countleft: 41,
+                lang: 0,
+                count1: 0, count2: 0, count3: 0, count4: 0
+            })
         })
 
         it('should handle increment', ()=> {
-            expect(counter(1, {type: 'INCERMENT'})).toBe(2)
+            expect(counter({
+                count: 2,
+                countleft: 39,
+                lang: 0,
+                count1: 0, count2: 0, count3: 0, count4: 0
+            }, {type: 'INCREMENT'})).toEqual({
+                count: 3,
+                countleft: 38,
+                lang: 0,
+                count1: 0, count2: 0, count3: 0, count4: 0
+            })
         })
-        it('should handle decrement', ()=> {
-            expect(counter(1, {type: 'DECERMENT'})).toBe(0)
-        })
+
         it('should handle reset', ()=> {
-            expect(counter(99, {type: 'RESET'})).toBe(0)
+            expect(counter({
+                count: 2,
+                countleft: 39,
+                lang: 0,
+                count1: 0, count2: 0, count3: 0, count4: 0
+            }, {type: 'RESET'})).toEqual({
+                count: 0,
+                countleft: 41,
+                lang: 0,
+                count1: 0, count2: 0, count3: 0, count4: 0
+            })
         })
         it('should handle unknown operations', ()=> {
-            expect(counter(9, {type: 'unknown'})).toBe(9)
+            expect(counter({
+                count: 2,
+                countleft: 39,
+                lang: 0,
+                count1: 0, count2: 0, count3: 0, count4: 0
+            }, {type: 'unknown'})).toEqual({
+                count: 2,
+                countleft: 39,
+                lang: 0,
+                count1: 0, count2: 0, count3: 0, count4: 0
+            })
         })
     })
 })
