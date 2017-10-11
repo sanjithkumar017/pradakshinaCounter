@@ -9,11 +9,44 @@ import {
     View,
     TouchableOpacity,
     TouchableHighlight,
-    Alert
+    Alert,
+    AsyncStorage
 } from 'react-native';
 
+import styles from '../styles/styles';
+import DateCircle from './dateCircles';
+import MantraText from './mantraText';
+import SingleCounter from './singleCounter';
 
-export default class Counter extends Component {
+import CounterContainer from "../containers/Container.js";
+
+//todo
+//We need to create seperate components
+//We need to reuse the components
+
+//Spend 5 days on testing
+//Unit testing
+//All types of testing
+
+//Save 4 dates into separate Async Names
+//When componentWillMount is called, load these dates onto Redux state
+//Set each date on complete of 41
+////We need to be intelligent enough to set the correct date
+
+//We need to store the start date and 4 dots and the end date in AsyncStorage.
+//Save it as 4 objects with date as current day number, like 2nd, 17th and so on.
+
+
+class Counter extends Component {
+
+    componentDidMount() {
+        console.log("This is componentDidMount");
+        //this is where we will set the AsyncStorage to Redux state
+    }
+
+    componentWillMount() {
+        console.log("This is componentWillMount");
+    }
 
     render() {
         return (
@@ -22,142 +55,30 @@ export default class Counter extends Component {
                 <View style={styles.parent}>
 
                     <View style={styles.mantra}>
-
-                        <Text style={styles.mantram}>TVAMASMIN KAARYA NIRYOGE
-                            PRAMAANAM HARI SATTAMA |
-                            HANUMAN YATNA MAASTHAAYA
-                            DUKHA KSHAYA KARO BHAVA ||</Text>
-
+                        <MantraText/>
                     </View>
 
-                    <View style={styles.counterFactory}>
-
-
-                        <TouchableHighlight underlayColor={'#D62828'} style={styles.buttonWrapperCounter}
-                                            onPress={()=> {
-                                                this.props.increment()
-                                                if (this.props.count == 40) {
-
-                                                    Alert.alert(
-                                                        'You have successfully finished 41 rounds',
-                                                        'Please rate us on Google Play',
-                                                        [
-                                                            {
-                                                                text: 'Ok', onPress: () => {
-                                                                this.props.reset()
-
-                                                            }
-                                                            },
-                                                            {
-                                                                text: 'Cancel',
-                                                                onPress: () => console.log('Cancel Pressed')
-                                                            },
-                                                        ],
-                                                        {cancelable: false}
-                                                    )
-
-                                                }
-                                            }}>
-                            <Text
-                                style={styles.buttonCounter}>
-                                {this.props.count}
-                            </Text>
-
-                        </TouchableHighlight>
-
-
-                        <TouchableOpacity style={styles.buttonWrapperReset} onPress={()=> {
-                            if (this.props.count == 0) {
-
-                            } else {
-                                Alert.alert(
-                                    'Are you sure?',
-                                    'You will lose the count',
-                                    [
-                                        {
-                                            text: 'Ok', onPress: () => {
-                                            this.props.reset()
-
-                                        }
-                                        },
-                                        {text: 'Cancel', onPress: () => console.log('Cancel Pressed')},
-                                    ],
-                                    {cancelable: false}
-                                )
-                            }
-                        }}>
-                            <Text
-                                style={styles.buttonReset}>
-                                RESET
-                            </Text>
-                        </TouchableOpacity>
-
-
-                        <Text>
-                            You have {this.props.countleft} rounds left
-                        </Text>
-
-
+                    <View style={styles.deekshaCounter}>
+                        <DateCircle/>
+                        <DateCircle/>
+                        <DateCircle/>
+                        <DateCircle/>
                     </View>
+
+                    {/*we are directly including the component*/}
+                    <SingleCounter/>
+
 
                 </View>
             </View>
+
         );
     }
+
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        backgroundColor: "white"
 
-    },
-    parent: {
-        flex: 1,
-        alignItems: "center",
-        margin: 5,
-
-    },
-    mantra: {
-        flex: 3,
-    },
-    mantram: {
-        fontFamily: "mono",
-        fontWeight: "bold",
-        fontSize: 30,
-        textAlign: "center",
-        color: "black",
+export default CounterContainer(Counter);
 
 
-    },
-    counterFactory: {
-        flex: 2,
-        alignItems: "center"
-    },
-    buttonWrapperCounter: {
-        borderWidth: 1,
-        borderColor: 'rgba(0,0,0,0.2)',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 100,
-        height: 100,
-        backgroundColor: '#003049',
-        borderRadius: 100,
 
-    },
-    buttonWrapperReset: {
-        backgroundColor: '#D62828',
-        marginTop: 20,
-        padding: 20,
-        borderRadius: 30,
-        alignItems: "center"
-    },
-    buttonCounter: {
-        color: '#FFFFFF',
-        fontSize: 30
-    },
-    buttonReset: {
-        color: '#FFFFFF',
-    },
-});

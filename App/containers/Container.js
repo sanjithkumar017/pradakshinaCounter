@@ -4,21 +4,27 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux';
-import Counter from '../components/Counter.js';
 
 const mapStateToProps = state => ({
     count: state.count,
-    countleft: state.countleft
+    countleft: state.countleft,
+    lang: state.lang
 })
+
+
 
 const mapDispatchToProps = (dispatch) => ({
     increment: () => {
-        console.log("increment is called ");
+
         dispatch({type: 'INCREMENT'})
     },
     reset: () => {
         dispatch({type: 'RESET'})
     },
+    nextlang: () => {
+
+        dispatch({type: 'NEXTLANG'})
+    },
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)
