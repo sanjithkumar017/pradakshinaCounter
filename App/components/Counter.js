@@ -3,14 +3,14 @@
  */
 import React, {Component} from 'react';
 import {
-    Button,
-    StyleSheet,
-    Text,
-    View,
-    TouchableOpacity,
-    TouchableHighlight,
-    Alert,
-    AsyncStorage
+	Button,
+	StyleSheet,
+	Text,
+	View,
+	TouchableOpacity,
+	TouchableHighlight,
+	Alert,
+	AsyncStorage
 } from 'react-native';
 
 import styles from '../styles/styles';
@@ -39,41 +39,41 @@ import CounterContainer from "../containers/Container.js";
 
 class Counter extends Component {
 
-    componentDidMount() {
-        console.log("This is componentDidMount");
-        //this is where we will set the AsyncStorage to Redux state
-    }
+	componentDidMount() {
+		console.log("This is componentDidMount");
+		//this is where we will set the AsyncStorage to Redux state
+	}
 
-    componentWillMount() {
-        console.log("This is componentWillMount");
-    }
+	componentWillMount() {
+		console.log("This is componentWillMount");
+	}
 
-    render() {
-        return (
+	render() {
+		return (
 
-            <View style={styles.container}>
-                <View style={styles.parent}>
+			<View style={styles.container}>
+				<View style={styles.parent}>
 
-                    <View style={styles.mantra}>
-                        <MantraText/>
-                    </View>
+				<View style={styles.mantra}>
+				<MantraText/>
+				</View>
 
-                    <View style={styles.deekshaCounter}>
-                        <DateCircle/>
-                        <DateCircle/>
-                        <DateCircle/>
-                        <DateCircle/>
-                    </View>
+				<View style={styles.deekshaCounter}>
+				<DateCircle/>
+				<DateCircle/>
+				<DateCircle/>
+				<DateCircle/>
+				</View>
 
-                    {/*we are directly including the component*/}
-                    <SingleCounter/>
+				{/*we are directly including the component*/}
+				<SingleCounter/>
 
 
-                </View>
-            </View>
+				</View>
+				</View>
 
-        );
-    }
+		);
+	}
 
 }
 
