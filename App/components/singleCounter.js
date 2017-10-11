@@ -20,7 +20,7 @@ import CounterContainer from "../containers/Container.js";
 class SingleCounter extends Component {
     render() {
         return (
-            <View>
+            <View style={styles.counterFactory}>
                 <TouchableHighlight underlayColor={'#D62828'} style={styles.buttonWrapperCounter}
                                     onPress={()=> {
                                         this.props.increment();

@@ -65,10 +65,9 @@ class Counter extends Component {
                         <DateCircle/>
                     </View>
 
-                    <View style={styles.counterFactory}>
-                        <SingleCounter/>
+                    {/*we are directly including the component*/}
+                    <SingleCounter/>
 
-                    </View>
 
                 </View>
             </View>
