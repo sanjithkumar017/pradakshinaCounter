@@ -18,6 +18,17 @@ import styles from '../styles/styles';
 import CounterContainer from "../containers/Container.js";
 
 class SingleCounter extends Component {
+
+    componentDidMount() {
+        console.log("This is componentDidMount");
+        //this is where we will set the AsyncStorage to Redux state
+    }
+
+    componentWillMount() {
+        console.log("This is componentWillMount");
+    }
+
+
     render() {
         return (
             <View style={styles.counterFactory}>
@@ -25,7 +36,7 @@ class SingleCounter extends Component {
                                     onPress={()=> {
                                         this.props.increment();
                                         if (this.props.count == 40) {
-
+                                            this.props.setNewDate();
                                             Alert.alert(
                                                 'You have successfully finished 41 rounds',
                                                 'Please rate us on Google Play',

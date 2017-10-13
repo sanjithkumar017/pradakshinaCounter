@@ -8,9 +8,12 @@ import {connect} from 'react-redux';
 const mapStateToProps = state => ({
     count: state.count,
     countleft: state.countleft,
-    lang: state.lang
+    lang: state.lang,
+    date1: state.date1,
+    date2: state.date2,
+    date3: state.date3,
+    date4: state.date4,
 })
-
 
 
 const mapDispatchToProps = (dispatch) => ({
@@ -24,6 +27,23 @@ const mapDispatchToProps = (dispatch) => ({
     nextlang: () => {
 
         dispatch({type: 'NEXTLANG'})
+    },
+    setDate1: (value) => {
+
+        dispatch({type: 'SETDATE1', value})
+    }, setDate2: (value) => {
+
+        dispatch({type: 'SETDATE2', value})
+    }, setDate3: (value) => {
+
+        dispatch({type: 'SETDATE3', value})
+    }, setDate4: (value) => {
+
+        dispatch({type: 'SETDATE4', value})
+    },
+    setNewDate: () => {
+
+        dispatch({type: 'SETNEWDATE'})
     },
 })
 
