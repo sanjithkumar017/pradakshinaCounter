@@ -23,6 +23,11 @@ const styles = StyleSheet.create({
     mantra: {
         flex: 2,
     },
+
+    middle:{
+        flex: 1,
+        flexDirection: 'column',
+    },
     deekshaCounter: {
         flex: 1,
         flexDirection: 'row',
@@ -30,7 +35,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-around"
     },
     counterFactory: {
-        flex: 2,
+        flex: 3,
         alignItems: "center"
     },
 

@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
     date2: state.date2,
     date3: state.date3,
     date4: state.date4,
+    enddate: state.enddate
 })
 
 
@@ -44,6 +45,10 @@ const mapDispatchToProps = (dispatch) => ({
     setNewDate: () => {
 
         dispatch({type: 'SETNEWDATE'})
+    },
+    setEndDate: (value) => {
+
+        dispatch({type: 'SETENDDATE', value})
     },
 })
 

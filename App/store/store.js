@@ -10,6 +10,7 @@ const initState = {
     countleft: 41,
     lang: 0,
     date1: null, date2: null, date3: null, date4: null,
+    enddate: null
 
 }
 
@@ -35,7 +36,8 @@ export const counter = (state = initState, action) => {
         case 'SETDATE1':
 
             return Object.assign({}, state, {
-                date1: action.value
+                date1: action.value,
+
             })
 
         case 'SETDATE2':
@@ -58,29 +60,28 @@ export const counter = (state = initState, action) => {
         case 'SETNEWDATE':
 
             let date = moment.utc(new Date()).format('D')
+            date = appender(date);
 
-            if (date == 1) {
-                date = date + "st"
-            }
-            if (date == 2) {
-                date = date + "nd"
-            }
-            if (date == 3) {
-                date = date + "rd"
-            }
-            if (date > 3) {
-                date = date + "th"
-            }
+            let edate = moment.utc(new Date(), "DD-MM-YYYY").add(16,'days');
+            let finalEDate = edate.format('DD');
+
+            finalEDate = appender(finalEDate);
+            finalEDate = finalEDate + " " + edate.format('MMMM')
+
 
             if (state.date1 === null) {
 
                 AsyncStorage.setItem("date1", date)
+                AsyncStorage.setItem("enddate", finalEDate)
 
                 return Object.assign({}, state, {
-                    date1: date
+                    date1: date,
+                    enddate: finalEDate
 
 
                 })
+
+
             }
 
             if (state.date2 === null) {
@@ -107,9 +108,31 @@ export const counter = (state = initState, action) => {
                 })
             }
 
+        case 'SETENDDATE':
+            return Object.assign({}, state, {
+                enddate: action.value
+            })
+
         default:
             return state;
     }
+}
+
+function appender(date) {
+    if (date == 1) {
+        date = date + "st"
+    }
+    if (date == 2) {
+        date = date + "nd"
+    }
+    if (date == 3) {
+        date = date + "rd"
+    }
+    if (date > 3) {
+        date = date + "th"
+    }
+
+    return date;
 }
 
 let store = createStore(counter, initState);

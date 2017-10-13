@@ -28,6 +28,7 @@ import CounterContainer from "../containers/Container.js";
 
 //We need to optimise code as much as possible
 //Let's show when they have started and when they must be ending
+//Clean up and write some test cases for the store
 
 //When we are releasing, We can ask for translations in Kannada and Tamil
 
@@ -57,6 +58,12 @@ class Counter extends Component {
         this.getStoredKey("date4").then((value)=> {
             console.log("This is componentDidMount", value);
             this.props.setDate4(value);
+
+        })
+
+        this.getStoredKey("enddate").then((value)=> {
+            console.log("This is componentDidMount", value);
+            this.props.setEndDate(value);
 
         })
 
@@ -95,12 +102,18 @@ class Counter extends Component {
                         <MantraText/>
                     </View>
 
+
                     <View style={styles.deekshaCounter}>
                         <DateCircle date={this.props.date1}/>
                         <DateCircle date={this.props.date2}/>
                         <DateCircle date={this.props.date3}/>
                         <DateCircle date={this.props.date4}/>
                     </View>
+
+                    {this.props.enddate && <View style={styles.deekshaCounter}>
+                        <Text>Your deeksha ends on {this.props.enddate}</Text>
+                    </View>}
+
 
                     {/*we are directly including the component*/}
                     <SingleCounter/>
