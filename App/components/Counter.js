@@ -26,14 +26,10 @@ import CounterContainer from "../containers/Container.js";
 //Unit testing
 //All types of testing
 
-//Save 4 dates into separate Async Names
-//When componentWillMount is called, load these dates onto Redux state
-//Set each date on complete of 41
-////We need to be intelligent enough to set the correct date
-//We also need to set the pending dates in different color
+//We need to optimise code as much as possible
+//Let's show when they have started and when they must be ending
 
-//We need to store the start date and 4 dots and the end date in AsyncStorage.
-//Save it as 4 objects with date as current day number, like 2nd, 17th and so on.
+//When we are releasing, We can ask for translations in Kannada and Tamil
 
 
 class Counter extends Component {
@@ -63,7 +59,6 @@ class Counter extends Component {
             this.props.setDate4(value);
 
         })
-
 
 
     }
