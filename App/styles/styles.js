@@ -23,6 +23,17 @@ const styles = StyleSheet.create({
     mantra: {
         flex: 2,
     },
+    deekshaCounter: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: "stretch",
+        justifyContent: "space-around"
+    },
+    counterFactory: {
+        flex: 2,
+        alignItems: "center"
+    },
+
     mantram: {
         fontFamily: "mono",
         fontWeight: "bold",
@@ -32,10 +43,7 @@ const styles = StyleSheet.create({
 
 
     },
-    counterFactory: {
-        flex: 2,
-        alignItems: "center"
-    },
+
     buttonWrapperCounter: {
         borderWidth: 1,
         borderColor: 'rgba(0,0,0,0.2)',
@@ -61,12 +69,7 @@ const styles = StyleSheet.create({
     buttonReset: {
         color: attribs.colorwhite,
     },
-    deekshaCounter: {
-        flex: 2,
-        flexDirection: 'row',
-        alignItems: "stretch",
-        justifyContent: "space-around"
-    },
+
     circles: {
         flex: 1,
         margin: 19,
