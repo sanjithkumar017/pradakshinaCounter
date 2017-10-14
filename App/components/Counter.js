@@ -38,10 +38,10 @@ const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate"]
 class Counter extends Component {
 
     componentWillMount() {
-        console.log("This is componentWillMount");
+        
 
         this.getStoredAllKeys(asyncStorageKeys).then((value)=> {
-            console.log("This is componentDidMount All", value);
+            
             this.props.setDate1(value[0]["1"]);
             this.props.setDate2(value[1]["1"]);
             this.props.setDate3(value[2]["1"]);
@@ -54,7 +54,7 @@ class Counter extends Component {
     }
 
     componentDidMount() {
-        console.log("This is componentDidMount");
+        
         //this is where we will set the AsyncStorage to Redux state
 
 

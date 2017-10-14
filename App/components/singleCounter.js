@@ -17,15 +17,18 @@ import {
 import styles from '../styles/styles';
 import CounterContainer from "../containers/Container.js";
 
+const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate"]
+
+
 class SingleCounter extends Component {
 
     componentDidMount() {
-        console.log("This is componentDidMount");
+
         //this is where we will set the AsyncStorage to Redux state
     }
 
     componentWillMount() {
-        console.log("This is componentWillMount");
+
     }
 
 
@@ -40,7 +43,7 @@ class SingleCounter extends Component {
                                             this.props.setNewDate();
                                             Alert.alert(
                                                 'You have successfully finished 41 rounds',
-                                                'Please rate us on Google Play',
+                                                'You can find the progress in the dots with today\'s date.',
                                                 [
                                                     {
                                                         text: 'Ok', onPress: () => {
@@ -50,7 +53,9 @@ class SingleCounter extends Component {
                                                     },
                                                     {
                                                         text: 'Cancel',
-                                                        onPress: () => console.log('Cancel Pressed')
+                                                        onPress: () =>{
+                                                            this.props.reset()
+                                                        }
                                                     },
                                                 ],
                                                 {cancelable: false}
@@ -68,12 +73,40 @@ class SingleCounter extends Component {
 
                 <TouchableOpacity style={styles.buttonWrapperReset} onPress={()=> {
                     if (this.props.count == 0) {
-                        
+                        //Lets add full reset here
+                        if(this.props.date1){
+                            Alert.alert(
+                                'Are you sure?',
+                                'You will lose the deeskha progress which started on '+this.props.date1,
+                                [
+                                    {
+                                        text: 'Ok', onPress: () => {
+                                        this.props.reset()
+                                        AsyncStorage.multiRemove(asyncStorageKeys , (err) => {
+                                            // keys k1 & k2 removed, if they existed
+                                            // do most stuff after removal (if you want)
+                                            this.props.setDate1(null);
+                                            this.props.setDate2(null);
+                                            this.props.setDate3(null);
+                                            this.props.setDate4(null);
+                                            this.props.setEndDate(null);
+                                        });
+
+
+                                    }
+                                    },
+                                    {text: 'Cancel', onPress: () => {}},
+                                ],
+                                {cancelable: false}
+                            )
+
+
+                        }
 
                     } else {
                         Alert.alert(
                             'Are you sure?',
-                            'You will lose the count',
+                            'You will lose the count.',
                             [
                                 {
                                     text: 'Ok', onPress: () => {
@@ -81,7 +114,7 @@ class SingleCounter extends Component {
 
                                 }
                                 },
-                                {text: 'Cancel', onPress: () => console.log('Cancel Pressed')},
+                                {text: 'Cancel', onPress: () => {}},
                             ],
                             {cancelable: false}
                         )
@@ -100,6 +133,7 @@ class SingleCounter extends Component {
             </View>
         );
     }
+
 
 
 }

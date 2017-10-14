@@ -15,12 +15,12 @@ import attribs from '../styles/constants'
 class DateCircle extends Component {
 
     componentDidMount() {
-        console.log("This is componentDidMount");
+        
         //this is where we will set the AsyncStorage to Redux state
     }
 
     componentWillMount() {
-        console.log("This is componentWillMount");
+        
     }
 
 
