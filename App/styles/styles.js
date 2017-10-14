@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "center",
         margin: 5,
-        justifyContent: 'space-between'
+        justifyContent: 'space-around'
 
     },
     mantra: {
@@ -34,8 +34,11 @@ const styles = StyleSheet.create({
         alignItems: "stretch",
         justifyContent: "space-around"
     },
+    deekshaEnd: {
+        flex: 0.2,
+    },
     counterFactory: {
-        flex: 3,
+        flex: 2,
         alignItems: "center"
     },
 

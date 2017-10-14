@@ -30,6 +30,8 @@ import CounterContainer from "../containers/Container.js";
 //Let's show when they have started and when they must be ending
 //Clean up and write some test cases for the store
 
+//How will the user start fresh
+
 //When we are releasing, We can ask for translations in Kannada and Tamil
 
 
@@ -110,7 +112,7 @@ class Counter extends Component {
                         <DateCircle date={this.props.date4}/>
                     </View>
 
-                    {this.props.enddate && <View style={styles.deekshaCounter}>
+                    {this.props.enddate && <View style={styles.deekshaEnd}>
                         <Text>Your deeksha ends on {this.props.enddate}</Text>
                     </View>}
 
