@@ -29,13 +29,13 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     deekshaCounter: {
-        flex: 1,
+        flex: 0.7,
         flexDirection: 'row',
         alignItems: "stretch",
         justifyContent: "space-around"
     },
     deekshaEnd: {
-        flex: 0.2,
+        flex: 0.3,
     },
     counterFactory: {
         flex: 2,
