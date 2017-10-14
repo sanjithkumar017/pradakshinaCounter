@@ -34,38 +34,19 @@ import CounterContainer from "../containers/Container.js";
 
 //When we are releasing, We can ask for translations in Kannada and Tamil
 
-
+const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate"]
 class Counter extends Component {
 
     componentWillMount() {
         console.log("This is componentWillMount");
-        // moment.utc(new Date()).format('D')
-        console.log("We have set it");
-        this.getStoredKey("date1").then((value)=> {
-            console.log("This is componentDidMount", value);
-            this.props.setDate1(value);
 
-
-        })
-        this.getStoredKey("date2").then((value)=> {
-            console.log("This is componentDidMount", value);
-            this.props.setDate2(value);
-
-        })
-        this.getStoredKey("date3").then((value)=> {
-            console.log("This is componentDidMount", value);
-            this.props.setDate3(value);
-
-        })
-        this.getStoredKey("date4").then((value)=> {
-            console.log("This is componentDidMount", value);
-            this.props.setDate4(value);
-
-        })
-
-        this.getStoredKey("enddate").then((value)=> {
-            console.log("This is componentDidMount", value);
-            this.props.setEndDate(value);
+        this.getStoredAllKeys(asyncStorageKeys).then((value)=> {
+            console.log("This is componentDidMount All", value);
+            this.props.setDate1(value[0]["1"]);
+            this.props.setDate2(value[1]["1"]);
+            this.props.setDate3(value[2]["1"]);
+            this.props.setDate4(value[3]["1"]);
+            this.props.setEndDate(value[4]["1"]);
 
         })
 
@@ -79,19 +60,19 @@ class Counter extends Component {
 
     }
 
-    getStoredKeyP(key) {
+    getStoredAllKeysP(keyList) {
         return new Promise(resolve => {
-            AsyncStorage.getItem(key)
-                .then((value)=> {
+            AsyncStorage.multiGet(keyList, (err, stores) => {
 
-                    return resolve(value)
-                })
+                return resolve(stores)
+            });
         });
     }
 
-    async  getStoredKey(key) {
-        return await this.getStoredKeyP(key);
+    async  getStoredAllKeys(keyList) {
+        return await this.getStoredAllKeysP(keyList);
     }
+
 
 
     render() {

@@ -62,7 +62,7 @@ export const counter = (state = initState, action) => {
             let date = moment.utc(new Date()).format('D')
             date = appender(date);
 
-            let edate = moment.utc(new Date(), "DD-MM-YYYY").add(16,'days');
+            let edate = moment.utc(new Date(), "DD-MM-YYYY").add(16, 'days');
             let finalEDate = edate.format('DD');
 
             finalEDate = appender(finalEDate);

@@ -68,6 +68,7 @@ class SingleCounter extends Component {
 
                 <TouchableOpacity style={styles.buttonWrapperReset} onPress={()=> {
                     if (this.props.count == 0) {
+                        
 
                     } else {
                         Alert.alert(
