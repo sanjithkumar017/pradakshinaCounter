@@ -10,7 +10,8 @@ const initState = {
     countleft: 41,
     lang: 0,
     date1: null, date2: null, date3: null, date4: null,
-    enddate: null
+    enddate: null,
+    startdate: null,
 
 }
 
@@ -62,7 +63,9 @@ export const counter = (state = initState, action) => {
             let date = moment.utc(new Date()).format('D')
             date = appender(date);
 
-            let edate = moment.utc(new Date(), "DD-MM-YYYY").add(16, 'days');
+            let finalSDate = date + " " + moment.utc(new Date()).format('MMMM')
+
+            let edate = moment.utc(new Date(), "DD-MM-YYYY").add(15, 'days');
             let finalEDate = edate.format('DD');
 
             finalEDate = appender(finalEDate);
@@ -73,10 +76,12 @@ export const counter = (state = initState, action) => {
 
                 AsyncStorage.setItem("date1", date)
                 AsyncStorage.setItem("enddate", finalEDate)
+                AsyncStorage.setItem("startdate", finalSDate)
 
                 return Object.assign({}, state, {
                     date1: date,
-                    enddate: finalEDate
+                    enddate: finalEDate,
+                    startdate: finalSDate
 
 
                 })
@@ -113,13 +118,20 @@ export const counter = (state = initState, action) => {
                 enddate: action.value
             })
 
+        case 'SETSTARTDATE':
+
+            return Object.assign({}, state, {
+                //date4: moment.utc(new Date()).format('D')
+                startdate: action.value
+            })
+
         default:
             return state;
     }
 }
 
 function appender(date) {
-    if (date == 1) {
+    if (date == 1 || date == 31) {
         date = date + "st"
     }
     if (date == 2) {

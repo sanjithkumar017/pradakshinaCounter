@@ -77,7 +77,7 @@ class SingleCounter extends Component {
                         if(this.props.date1){
                             Alert.alert(
                                 'Are you sure?',
-                                'You will lose the deeskha progress which started on '+this.props.date1,
+                                'You will lose the deeskha progress which started on '+this.props.startdate,
                                 [
                                     {
                                         text: 'Ok', onPress: () => {
