@@ -16,13 +16,6 @@ import time
 ##Let the script wait, after success, Let it share the apk over mail to a few people.
 ##Undo the changes in AndroidManifest
 
-#result = check_output(["ls", "-l"])
-#print "result",result
-
-#print "Let's try traversing"
-##os.chdir("android/app")
-#result = check_output(["ls", "-l"])
-#print "result",result
 
 currentDirectory = os.getcwd()
 projectName = currentDirectory.split("/")[-1]
