@@ -14,6 +14,15 @@ import attribs from '../styles/constants'
 
 class DateCircle extends Component {
 
+    state = {
+        isModalVisible: false
+    }
+
+    _showModal = () => this.setState({isModalVisible: true})
+
+    _hideModal = () => this.setState({isModalVisible: false})
+
+
     componentDidMount() {
         
         //this is where we will set the AsyncStorage to Redux state

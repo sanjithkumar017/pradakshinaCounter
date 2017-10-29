@@ -5,7 +5,8 @@
 const attribs = {
     colorwhite: "white",
     colorRed: '#D62828',
-    colorBlue: '#003049'
+    colorBlue: '#003049',
+    colorGrey: '#D6D6D6'
 }
 
 export default attribs;

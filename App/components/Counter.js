@@ -10,13 +10,19 @@ import {
     TouchableOpacity,
     TouchableHighlight,
     Alert,
-    AsyncStorage
+    AsyncStorage,
 } from 'react-native';
 
 import styles from '../styles/styles';
+import attribs from '../styles/constants'
+
+
 import DateCircle from './dateCircles';
 import MantraText from './mantraText';
 import SingleCounter from './singleCounter';
+import ModalInfoBegin from './modalBegin';
+import ModalInfoFinish from './modalFinish';
+import ModalInfoProgress from './modalProgress';
 
 import CounterContainer from "../containers/Container.js";
 
@@ -63,6 +69,7 @@ class Counter extends Component {
 
     }
 
+
     getStoredAllKeysP(keyList) {
         return new Promise(resolve => {
             AsyncStorage.multiGet(keyList, (err, stores) => {
@@ -87,17 +94,11 @@ class Counter extends Component {
                         <MantraText/>
                     </View>
 
+                    {!this.props.enddate && !this.props.date4 && <ModalInfoBegin/>}
 
-                    <View style={styles.deekshaCounter}>
-                        <DateCircle date={this.props.date1}/>
-                        <DateCircle date={this.props.date2}/>
-                        <DateCircle date={this.props.date3}/>
-                        <DateCircle date={this.props.date4}/>
-                    </View>
+                    {this.props.enddate && !this.props.date4 && <ModalInfoProgress/>}
 
-                    {this.props.enddate && <View style={styles.deekshaEnd}>
-                        <Text>Your deeksha ends on {this.props.enddate}</Text>
-                    </View>}
+                    {this.props.enddate && this.props.date4 && <ModalInfoFinish/>}
 
 
                     {/*we are directly including the component*/}

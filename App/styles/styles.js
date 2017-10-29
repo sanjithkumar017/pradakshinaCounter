@@ -18,27 +18,15 @@ const styles = StyleSheet.create({
         alignItems: "center",
         margin: 5,
         justifyContent: 'space-around'
-
     },
     mantra: {
         flex: 2,
     },
-
-    middle:{
-        flex: 1,
-        flexDirection: 'column',
-    },
-    deekshaCounter: {
-        flex: 0.7,
-        flexDirection: 'row',
-        alignItems: "stretch",
-        justifyContent: "space-around"
-    },
     deekshaEnd: {
-        flex: 0.3,
+        flex: 0.2,
     },
     counterFactory: {
-        flex: 2,
+        flex: 4,
         alignItems: "center"
     },
 
@@ -48,8 +36,6 @@ const styles = StyleSheet.create({
         fontSize: 30,
         textAlign: "center",
         color: "black",
-
-
     },
 
     buttonWrapperCounter: {
@@ -61,6 +47,7 @@ const styles = StyleSheet.create({
         height: 100,
         backgroundColor: attribs.colorBlue,
         borderRadius: 100,
+        zIndex: 10
 
     },
     buttonWrapperReset: {
@@ -90,7 +77,64 @@ const styles = StyleSheet.create({
         color: attribs.colorwhite,
         textAlign: 'center',
         marginTop: 15,
+    },
+    putCenter: {
+        alignItems: "center",
+        justifyContent: "center", flex: 1
+    },
+    parentCircle: {
+        position: 'absolute', width: 65 * 2,
+        height: 65 * 2,
+        backgroundColor: "white",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "row"
+    },
+    topLeftQuad: {
+        width: 65,
+        height: 65,
+        borderRadius: 65,
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0,
+        borderTopLeftRadius: 0,
+        transform: [{rotate: "90deg"}],
+    },
+    bottomLeftQuad: {
+        width: 65,
+        height: 65,
+        borderRadius: 65,
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0,
+        borderTopLeftRadius: 0,
+        transform: [{rotate: "0deg"}],
+    },
+    topRightQuad: {
+        width: 65,
+        height: 65,
+        borderRadius: 65,
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0,
+        borderTopLeftRadius: 0,
+        transform: [{rotate: "180deg"}],
+    },
+    bottomRightQuad: {
+        width: 65,
+        height: 65,
+        borderRadius: 65,
+        borderTopRightRadius: 0,
+        borderBottomRightRadius: 0,
+        borderTopLeftRadius: 0,
+        transform: [{rotate: "270deg"}],
+    },
+    bottomModal: {
+        justifyContent: 'flex-end',
+        margin: 0,
+    },
+    makeBold:{
+        fontWeight: 'bold',
+        textDecorationLine: "underline",
     }
+
 });
 
 export default styles;
