@@ -46,9 +46,9 @@ class ModalInfoFinish extends Component {
                 </TouchableOpacity>
                 <Modal isVisible={this.state.isModalVisible} style={styles.bottomModal}>
                     <View
-                        style={{flex: 0.5, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
-                        <View>
-                            <Text>Finish</Text>
+                        style={{flex: 0.2, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
+                        <View style={styles.putCenter}>
+                            <Text>Share your miracle with the world.</Text>
 
                         </View>
 

@@ -46,10 +46,13 @@ class ModalInfoProgress extends Component {
                 </TouchableOpacity>
                 <Modal isVisible={this.state.isModalVisible} style={styles.bottomModal}>
                     <View
-                        style={{flex: 0.5, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
-                        <View>
-                            <Text>Progress </Text>
-
+                        style={{flex: 0.3, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
+                        <View style={styles.putCenter}>
+                            <Text>You have progressed with the deeksha on the following dates :</Text>
+                            <Text>1. <Text style={styles.makeBold}>{this.props.date1}</Text> </Text>
+                            <Text>2. <Text style={styles.makeBold}>{this.props.date2}</Text> </Text>
+                            <Text>3. <Text style={styles.makeBold}>{this.props.date3}</Text> </Text>
+                            <Text>4. <Text style={styles.makeBold}>{this.props.date4}</Text> </Text>
                         </View>
 
                         <Button title="Close" onPress={this._hideModal} color={attribs.colorRed} style={[{}]}/>

@@ -46,9 +46,9 @@ class ModalInfoBegin extends Component {
                 </TouchableOpacity>
                 <Modal isVisible={this.state.isModalVisible} style={styles.bottomModal}>
                     <View
-                        style={{flex: 0.5, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
-                        <View>
-                            <Text>You can do </Text>
+                        style={{flex: 0.2, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
+                        <View style={styles.putCenter}>
+                            <Text>You can do 41 Pradakshinas, 4 times around the lord to fullfill your wish. </Text>
 
                         </View>
 
