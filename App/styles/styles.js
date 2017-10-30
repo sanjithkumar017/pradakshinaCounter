@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     putCenter: {
         alignItems: "center",
-        justifyContent: "center", flex: 1
+        justifyContent: "center", flex: 1,
     },
     parentCircle: {
         position: 'absolute', width: 65 * 2,

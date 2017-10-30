@@ -47,9 +47,8 @@ class ModalInfoBegin extends Component {
                 <Modal isVisible={this.state.isModalVisible} style={styles.bottomModal}>
                     <View
                         style={{flex: 0.2, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
-                        <View style={styles.putCenter}>
-                            <Text>You can do <Text style={styles.makeBold}>41</Text> Pradakshinas, <Text
-                                style={styles.makeBold}>4</Text> times around the lord to fullfill your wish. </Text>
+                        <View style={[styles.putCenter, {margin: 10}]}>
+                            <Text>You can perform <Text style={styles.makeBold}>41 pradakshinas</Text> around the lord, for <Text style={styles.makeBold}> 4 times</Text> to fullfill your <Text style={styles.makeBold}>wishes.</Text></Text>
 
                         </View>
 

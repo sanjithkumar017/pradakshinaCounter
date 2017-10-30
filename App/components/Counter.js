@@ -40,7 +40,7 @@ import CounterContainer from "../containers/Container.js";
 
 //When we are releasing, We can ask for translations in Kannada and Tamil
 
-const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate"]
+const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate","startdate"]
 class Counter extends Component {
 
     componentWillMount() {
@@ -53,7 +53,7 @@ class Counter extends Component {
             this.props.setDate3(value[2]["1"]);
             this.props.setDate4(value[3]["1"]);
             this.props.setEndDate(value[4]["1"]);
-            this.props.setStartDate(value[4]["1"]);
+            this.props.setStartDate(value[5]["1"]);
 
         })
 

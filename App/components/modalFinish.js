@@ -47,8 +47,9 @@ class ModalInfoFinish extends Component {
                 <Modal isVisible={this.state.isModalVisible} style={styles.bottomModal}>
                     <View
                         style={{flex: 0.2, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
-                        <View style={styles.putCenter}>
+                        <View style={[styles.putCenter, {margin: 10}]}>
                             <Text>Share your <Text style={styles.makeBold}>miracle</Text> with the world.</Text>
+                            <Text>You can press the <Text style={styles.makeBold}>reset</Text> button to start again.</Text>
 
                         </View>
 
