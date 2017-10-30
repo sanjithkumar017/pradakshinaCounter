@@ -16,6 +16,7 @@ import {
 
 import styles from '../styles/styles';
 import attribs from '../styles/constants'
+import Modal from 'react-native-modal'
 
 
 import CounterContainer from "../containers/Container.js";
@@ -25,6 +26,15 @@ const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate"]
 
 class SingleCounter extends Component {
 
+    state = {
+        isModalVisible: false
+    }
+
+    _showModal = () => this.setState({isModalVisible: true})
+
+    _hideModal = () => this.setState({isModalVisible: false})
+
+
     componentDidMount() {
 
         //this is where we will set the AsyncStorage to Redux state
@@ -33,7 +43,6 @@ class SingleCounter extends Component {
     componentWillMount() {
 
     }
-
 
 
     render() {
@@ -80,27 +89,13 @@ class SingleCounter extends Component {
                                             this.props.increment();
                                             if (this.props.count == 40) {
                                                 this.props.setNewDate();
-                                                Alert.alert(
-                                                    'You have successfully finished 41 rounds',
-                                                    'You can find the progress in the circle. Press the end date for more information.',
-                                                    [
-                                                        {
-                                                            text: 'Ok', onPress: () => {
-                                                            this.props.reset()
 
-                                                        }
-                                                        },
-                                                        {
-                                                            text: 'Cancel',
-                                                            onPress: () => {
-                                                                this.props.reset()
-                                                            }
-                                                        },
-                                                    ],
-                                                    {cancelable: false}
-                                                )
+                                                this._showModal();
+                                                this.props.reset();
+                                                //'You have successfully finished 41 rounds',
 
                                             }
+
                                         }}>
                         <Text
                             style={styles.buttonCounter}>
@@ -108,6 +103,19 @@ class SingleCounter extends Component {
                         </Text>
 
                     </TouchableHighlight>
+
+                    <Modal isVisible={this.state.isModalVisible} style={styles.bottomModal}>
+                        <View
+                            style={{flex: 0.2, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
+                            <View style={[styles.putCenter, {margin: 10}]}>
+                                <Text>You have completed <Text style={styles.makeBold}>41 pradakshinas</Text></Text>
+
+                            </View>
+
+                            <Button title="Close" onPress={this._hideModal} color={attribs.colorRed} style={[{}]}/>
+
+                        </View>
+                    </Modal>
                 </View>
 
 

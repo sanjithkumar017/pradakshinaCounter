@@ -30,17 +30,13 @@ import CounterContainer from "../containers/Container.js";
 //Unit testing
 //All types of testing
 
-//We need to optimise code as much as possible
-//Let's show when they have started and when they must be ending
-//Clean up and write some test cases for the store
+//We have to replace Alerts with Modals
+//Write test cases for the store || But the store has not changed.
 
-//How will the user start fresh
+//Start using JEST
 
-//We shall also save a prop called startdate with date and month
 
-//When we are releasing, We can ask for translations in Kannada and Tamil
-
-const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate","startdate"]
+const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate", "startdate"]
 class Counter extends Component {
 
     componentWillMount() {
