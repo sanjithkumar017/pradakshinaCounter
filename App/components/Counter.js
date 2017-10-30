@@ -31,6 +31,7 @@ import CounterContainer from "../containers/Container.js";
 //All types of testing
 
 //We have to replace Alerts with Modals
+//Make styles generalised
 //Write test cases for the store || But the store has not changed.
 
 //Start using JEST
