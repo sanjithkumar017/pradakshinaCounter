@@ -27,12 +27,22 @@ const asyncStorageKeys = ["date1", "date2", "date3", "date4", "enddate"]
 class SingleCounter extends Component {
 
     state = {
-        isModalVisible: false
+        isModalVisible: false,
+        isModalVisibleResetOne: false,
+        isModalVisibleResetTwo: false
     }
 
     _showModal = () => this.setState({isModalVisible: true})
 
     _hideModal = () => this.setState({isModalVisible: false})
+
+    _showModalResetOne = () => this.setState({isModalVisibleResetOne: true})
+
+    _hideModalResetOne = () => this.setState({isModalVisibleResetOne: false})
+
+    _showModalResetTwo = () => this.setState({isModalVisibleResetTwo: true})
+
+    _hideModalResetTwo = () => this.setState({isModalVisibleResetTwo: false})
 
 
     componentDidMount() {
@@ -123,13 +133,39 @@ class SingleCounter extends Component {
                     if (this.props.count == 0) {
                         //Lets add full reset here
                         if (this.props.date1) {
-                            Alert.alert(
-                                'Are you sure?',
-                                'You will lose the deeskha progress which started on ' + this.props.startdate,
-                                [
-                                    {
-                                        text: 'Ok', onPress: () => {
-                                        this.props.reset()
+
+                            this._showModalResetOne()
+
+
+                        }
+
+                    } else {
+                        this._showModalResetTwo()
+                    }
+                }}>
+                    <Text
+                        style={styles.buttonReset}>
+                        RESET
+                    </Text>
+
+                    <Modal isVisible={this.state.isModalVisibleResetOne} style={styles.bottomModal}>
+                        <View
+                            style={{flex: 0.2, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
+                            <View style={[styles.putCenter, {margin: 10}]}>
+                                <Text>You will <Text
+                                    style={styles.makeBold}>lose</Text> the deeskha progress which started on <Text
+                                    style={styles.makeBold}>{this.props.startdate}</Text></Text>
+
+                            </View>
+
+                            <View style={{
+                                alignItems: "center",
+                                flexDirection: "row",
+                                flex: 1, justifyContent: "center"
+                            }}>
+                                <View style={{flex: 1, margin: 5}}>
+                                    <Button title="Reset" onPress={()=> {
+
                                         AsyncStorage.multiRemove(asyncStorageKeys, (err) => {
                                             // keys k1 & k2 removed, if they existed
                                             // do most stuff after removal (if you want)
@@ -140,44 +176,53 @@ class SingleCounter extends Component {
                                             this.props.setEndDate(null);
                                         });
 
+                                        this._hideModalResetOne()
 
-                                    }
-                                    },
-                                    {
-                                        text: 'Cancel', onPress: () => {
-                                    }
-                                    },
-                                ],
-                                {cancelable: false}
-                            )
+                                    }} color={attribs.colorRed} style={{}}/>
+                                </View>
 
+                                <View style={{flex: 1, margin: 5}}>
+                                    <Button title="Close" onPress={this._hideModalResetOne} color={attribs.colorBlue}
+                                            style={{}}
+                                    />
+                                </View>
 
-                        }
+                            </View>
+                        </View>
+                    </Modal>
 
-                    } else {
-                        Alert.alert(
-                            'Are you sure?',
-                            'You will lose the count.',
-                            [
-                                {
-                                    text: 'Ok', onPress: () => {
-                                    this.props.reset()
+                    <Modal isVisible={this.state.isModalVisibleResetTwo} style={styles.bottomModal}>
+                        <View
+                            style={{flex: 0.2, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
+                            <View style={[styles.putCenter, {margin: 10}]}>
+                                <Text>You will <Text
+                                    style={styles.makeBold}>lose</Text> the <Text
+                                    style={styles.makeBold}>count</Text></Text>
 
-                                }
-                                },
-                                {
-                                    text: 'Cancel', onPress: () => {
-                                }
-                                },
-                            ],
-                            {cancelable: false}
-                        )
-                    }
-                }}>
-                    <Text
-                        style={styles.buttonReset}>
-                        RESET
-                    </Text>
+                            </View>
+
+                            <View style={{
+                                alignItems: "center",
+                                flexDirection: "row",
+                                flex: 1, justifyContent: "center"
+                            }}>
+                                <View style={{flex: 1, margin: 5}}>
+                                    <Button title="Reset" onPress={()=> {
+                                        this.props.reset()
+                                        this._hideModalResetTwo()
+                                    }} color={attribs.colorRed} style={{}}/>
+                                </View>
+
+                                <View style={{flex: 1, margin: 5}}>
+                                    <Button title="Close" onPress={this._hideModalResetTwo} color={attribs.colorBlue}
+                                            style={{}}
+                                    />
+                                </View>
+
+                            </View>
+
+                        </View>
+                    </Modal>
                 </TouchableOpacity>
 
 
