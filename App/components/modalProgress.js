@@ -47,7 +47,7 @@ class ModalInfoProgress extends Component {
                 <Modal isVisible={this.state.isModalVisible} style={styles.bottomModal}>
                     <View
                         style={{flex: 0.3, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
-                        <View style={[styles.putCenter, {margin: 10}]}>
+                        <View style={[styles.putCenter, styles.margin]}>
                             <Text>You started the Deeksha on <Text style={styles.makeBold}>{this.props.startdate}</Text>.</Text>
                             <Text>You have made pradakshinas on the following days :</Text>
                             <Text>1. <Text style={styles.makeBold}>{this.props.date1}</Text> </Text>

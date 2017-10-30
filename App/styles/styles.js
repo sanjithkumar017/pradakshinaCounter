@@ -47,7 +47,12 @@ const styles = StyleSheet.create({
         height: 100,
         backgroundColor: attribs.colorBlue,
         borderRadius: 100,
-        zIndex: 10
+        zIndex: 1,
+
+        shadowOffset: {width: 500, height: 500},
+        shadowColor: 'red',
+        shadowOpacity: 1,
+        elevation: 24
 
     },
     buttonWrapperReset: {
@@ -94,45 +99,36 @@ const styles = StyleSheet.create({
         width: 75,
         height: 75,
         borderRadius: 75,
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
-        borderTopLeftRadius: 0,
         transform: [{rotate: "90deg"}],
     },
     bottomLeftQuad: {
         width: 75,
         height: 75,
         borderRadius: 75,
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
-        borderTopLeftRadius: 0,
         transform: [{rotate: "0deg"}],
     },
     topRightQuad: {
         width: 75,
         height: 75,
         borderRadius: 75,
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
-        borderTopLeftRadius: 0,
         transform: [{rotate: "180deg"}],
     },
     bottomRightQuad: {
         width: 75,
         height: 75,
         borderRadius: 75,
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
-        borderTopLeftRadius: 0,
         transform: [{rotate: "270deg"}],
     },
     bottomModal: {
         justifyContent: 'flex-end',
         margin: 0,
     },
-    makeBold:{
+    makeBold: {
         fontWeight: 'bold',
         textDecorationLine: "underline",
+    },
+    marginTen: {
+        margin: 10
     }
 
 });
