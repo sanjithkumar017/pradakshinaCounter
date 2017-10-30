@@ -14,10 +14,8 @@ import {
 } from 'react-native';
 
 import styles from '../styles/styles';
-import attribs from '../styles/constants'
 
 
-import DateCircle from './dateCircles';
 import MantraText from './mantraText';
 import SingleCounter from './singleCounter';
 import ModalInfoBegin from './modalBegin';

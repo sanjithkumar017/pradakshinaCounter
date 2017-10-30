@@ -48,11 +48,12 @@ class ModalInfoBegin extends Component {
                     <View
                         style={{flex: 0.2, justifyContent: "space-between", backgroundColor: attribs.colorGrey}}>
                         <View style={styles.putCenter}>
-                            <Text>You can do 41 Pradakshinas, 4 times around the lord to fullfill your wish. </Text>
+                            <Text>You can do <Text style={styles.makeBold}>41</Text> Pradakshinas, <Text
+                                style={styles.makeBold}>4</Text> times around the lord to fullfill your wish. </Text>
 
                         </View>
 
-                            <Button title="Close" onPress={this._hideModal} color={attribs.colorRed} style={[{}]}/>
+                        <Button title="Close" onPress={this._hideModal} color={attribs.colorRed} style={[{}]}/>
 
                     </View>
                 </Modal>
