@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 
     mantram: {
         fontFamily: "mono",
-        fontWeight: "bold",
+        fontWeight: "300",
         fontSize: 30,
         textAlign: "center",
         color: "black",
