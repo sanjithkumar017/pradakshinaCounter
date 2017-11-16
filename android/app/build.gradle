@@ -72,6 +72,10 @@ import com.android.build.OutputFile
  * ]
  */
 
+project.ext.react = [
+    entryFile: "index.js"
+]
+
 apply from: "../../node_modules/react-native/react.gradle"
 
 /**
@@ -82,49 +86,39 @@ apply from: "../../node_modules/react-native/react.gradle"
  * Upload all the APKs to the Play Store and people will download
  * the correct one based on the CPU architecture of their device.
  */
-def enableSeparateBuildPerCPUArchitecture = true
+def enableSeparateBuildPerCPUArchitecture = false
 
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
  */
-def enableProguardInReleaseBuilds = true
+def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.pradakshinacounter"
         minSdkVersion 16
-        targetSdkVersion 26
-        versionCode 4
-        versionName "4"
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
     }
-
-    signingConfigs {
-            release {
-                if (project.hasProperty('APP_RELEASE_STORE_FILE')) {
-                    storeFile file(APP_RELEASE_STORE_FILE)
-                    storePassword APP_RELEASE_STORE_PASSWORD
-                    keyAlias APP_RELEASE_KEY_ALIAS
-                    keyPassword APP_RELEASE_KEY_PASSWORD
-                }
-            }
-        }
-
     splits {
-
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk false  // If true, also generate a universal APK
+            include "armeabi-v7a", "x86"
+        }
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
-            enableProguardInReleaseBuilds
+            minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            signingConfig signingConfigs.release
         }
     }
     // applicationVariants are e.g. debug, release
